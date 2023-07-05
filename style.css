@@ -1,0 +1,28 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+#display {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-size: 45px;
+    border: 5px solid red;
+    width: 320px;
+    height: 100px;
+}
+
+#buttonsDiv {
+    border: 5px solid blue;
+    display: flex;
+    flex-wrap: wrap;
+    width: 320px;
+    height: 640px;
+}
+
+button {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
