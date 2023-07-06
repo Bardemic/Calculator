@@ -14,11 +14,12 @@ body {
 }
 
 #buttonsDiv {
+    align-items: center;
     border: 5px solid blue;
     display: flex;
     flex-wrap: wrap;
     width: 320px;
-    height: 640px;
+    height: 380px;
 }
 
 button {
