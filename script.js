@@ -1,7 +1,6 @@
 let num1 = 0;
 let num2 = 0;
 let operator = "+";
-let displayValue;
 let curDisplayOperator = false;
 const display = document.querySelector("#display");
 const buttons = document.querySelectorAll("button");
@@ -22,6 +21,13 @@ function operate(num1, num2, operator){
     if(operator === "=") return num1;
 };
 
+function resetCalculator() {
+    num1 = 0;
+    num2 = 0;
+    operator = "+";
+    display.innerHTML = "0";
+}
+
 function updateDisplay(input) {
     console.log(input);
     if(input.classList.contains("operator")){
@@ -34,11 +40,11 @@ function updateDisplay(input) {
             display.innerHTML = input.innerHTML;
         }
     }
-    else if(input.classList.contains("number") && curDisplayOperator){
+    else if((input.classList.contains("number") && curDisplayOperator)){
         display.innerHTML = input.innerHTML;
         curDisplayOperator = false;
     }
-    else if(input.classList.contains("number") && !curDisplayOperator && operator != "=" ){
+    else if(input.classList.contains("number") && !curDisplayOperator && operator != "="){
         display.innerHTML += input.innerHTML;
         curDisplayOperator = false;
     }
@@ -52,13 +58,13 @@ buttons.forEach(button => {
 })
 
 function pressedButton(button) {
-    if(button.classList.contains("number")){
-        updateDisplay(button);
-        num2 = parseFloat(num2 + button.innerHTML);
+    if(button.id === "reset"){
+        resetCalculator();
     }
-    else if(button.id === "."){
+    else if(button.classList.contains("number")){
         updateDisplay(button);
-        num2 += ".";
+        if(button.id === ".") num2 += ".";
+        else num2 = parseFloat(num2 + button.innerHTML);
     }
     else if(num1 === 0){
         num1 = num2;
