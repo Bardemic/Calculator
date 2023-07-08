@@ -19,6 +19,7 @@ function operate(num1, num2, operator){
     if(operator === "-") return subtract(num1, num2);
     if(operator === "*") return multiply(num1, num2);
     if(operator === "/") return divide(num1, num2);
+    if(operator === "=") return num1;
 };
 
 function updateDisplay(input) {
@@ -37,7 +38,7 @@ function updateDisplay(input) {
         display.innerHTML = input.innerHTML;
         curDisplayOperator = false;
     }
-    else if(input.classList.contains("number") && !curDisplayOperator ){
+    else if(input.classList.contains("number") && !curDisplayOperator && operator != "=" ){
         display.innerHTML += input.innerHTML;
         curDisplayOperator = false;
     }
@@ -65,36 +66,17 @@ function pressedButton(button) {
         updateDisplay(button);
         operator = button.id;
     }
-    else if(button.id === "+"){
-        updateDisplay(button);
-        operator = "+";
-        num1 = operate(num1, num2, operator);
-        num2 = 0;
-    }
     else if(button.id === "="){
         num2 = operate(num1, num2, operator);
         num1 = 0;
-        operator = "+";
+        operator = "=";
         display.innerHTML = num2;
     }
-    else if(button.id === "-"){
+    else if(button.classList.contains("operator")){
+        operator = button.id;
         updateDisplay(button);
-        operator = "-";
         num1 = operate(num1, num2, operator);
         num2 = 0;
     }
-    else if(button.id === "/"){
-        updateDisplay(button);
-        operator = "/";
-        num1 = operate(num1, num2, operator);
-        num2 = 0;
-    }
-    else if(button.id === "*"){
-        operator = "*";
-        num1 = operate(num1, num2, operator);
-        num2 = 0;
-        updateDisplay(button);
-    }
-
 }
 
