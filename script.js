@@ -31,7 +31,7 @@ function resetCalculator() {
 function updateDisplay(input) {
     console.log(input);
     if(input.classList.contains("operator")){
-        if(input.id === "="){
+        if(input.id === "equals"){
             curDisplayOperator = false;
             display.innerHTML = num1;
         }
@@ -72,7 +72,7 @@ function pressedButton(button) {
         updateDisplay(button);
         operator = button.id;
     }
-    else if(button.id === "="){
+    else if(button.id === "equals"){
         num2 = operate(num1, num2, operator);
         num1 = 0;
         operator = "=";
