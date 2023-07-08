@@ -58,7 +58,11 @@ buttons.forEach(button => {
 })
 
 function pressedButton(button) {
-    if(button.id === "reset"){
+    console.log(display.innerHTML.length - 8);
+    if(display.innerHTML.length - 8 > 14){
+        return;
+    }
+    else if(button.id === "reset"){
         resetCalculator();
     }
     else if(button.classList.contains("number")){
