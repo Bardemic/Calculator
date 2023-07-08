@@ -1,13 +1,19 @@
+* {
+    font-family: "candara";
+}
+
 body {
     display: flex;
     justify-content: center;
 }
 
 #display {
+    color: #46786e;
+    padding-right: 15px;
     border-radius: 2.5rem;
     display: flex;
     justify-content: flex-end;
-    align-items: flex-end;
+    align-items: center;
     font-size: 45px;
     background-color: #b6bcaa;
     width: 320px;
@@ -30,6 +36,8 @@ body {
 }
 
 button {
+    font-size: 40px;
+    color: #46786e;
     background-color: #fdcd7f;
     border: none;
     border-radius: 50%;
