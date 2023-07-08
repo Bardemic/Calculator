@@ -33,7 +33,16 @@ button {
     background-color: #fdcd7f;
     border: none;
     border-radius: 50%;
-    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #c69f60;
+}
+
+button:active {
+    box-shadow: 0 5px 5px rgba(0, 0, 0, .2);
+    transform: translate(.5px, .5px);
 }
 
 #calculatorBody {
