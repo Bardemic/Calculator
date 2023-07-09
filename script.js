@@ -57,7 +57,7 @@ function updateDisplay(input) {
 buttons.forEach(button => {
     button.addEventListener('click', e => {
         pressedButton(e.target);
-        console.log("Num 1: " + num1 + " Num2: " + num2);
+        console.log(num1 % num2);
     })
 })
 
