@@ -13,11 +13,14 @@ const multiply = ((num1, num2) => num1 * num2);
 
 const divide = ((num1, num2) => num2 === 0 ? "ERROR" : num1 / num2);
 
+const remainder = ((num1, num2) => num1 % num2);
+
 function operate(num1, num2, operator){
     if(operator === "+") return add(num1, num2);
     if(operator === "-") return subtract(num1, num2);
     if(operator === "*") return multiply(num1, num2);
     if(operator === "/") return divide(num1, num2);
+    if(operator === "%") return remainder(num1, num2);
     if(operator === "=") return num1;
 };
 
@@ -54,6 +57,7 @@ function updateDisplay(input) {
 buttons.forEach(button => {
     button.addEventListener('click', e => {
         pressedButton(e.target);
+        console.log("Num 1: " + num1 + " Num2: " + num2);
     })
 })
 
@@ -83,9 +87,9 @@ function pressedButton(button) {
         display.innerHTML = num2;
     }
     else if(button.classList.contains("operator")){
+        num1 = operate(num1, num2, operator);
         operator = button.id;
         updateDisplay(button);
-        num1 = operate(num1, num2, operator);
         num2 = 0;
     }
 }

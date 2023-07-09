@@ -3,6 +3,7 @@
 }
 
 body {
+    background-color: #43291F;
     display: flex;
     justify-content: center;
 }
