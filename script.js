@@ -38,6 +38,9 @@ function updateDisplay(input) {
             curDisplayOperator = false;
             display.innerHTML = num1;
         }
+        else if(input.id === "flip"){
+            display.innerHTML = num2;
+        }
         else {
             curDisplayOperator = true;
             display.innerHTML = input.innerHTML;
@@ -65,6 +68,10 @@ function pressedButton(button) {
     console.log(display.innerHTML.length - 8);
     if(display.innerHTML.length - 8 > 14){
         return;
+    }
+    else if(button.id === "flip") {
+        num2 = -num2;
+        updateDisplay(button);
     }
     else if(button.id === "reset"){
         resetCalculator();
